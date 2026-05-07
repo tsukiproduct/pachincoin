@@ -139,7 +139,7 @@
 
   <div id="overlay">
     <!-- Title Screen -->
-    <div id="screenTitle" class="screen active"></div>
+    <div id="screenTitle" class="screen active" style="background:rgba(0,0,0,0.95);"><div style="display:flex;flex-direction:column;align-items:center;width:100%;padding-top:180px;"><div style="font-family:monospace;font-size:26px;color:#ff69b4;text-shadow:0 0 10px #ff1493;letter-spacing:4px;margin-bottom:8px;">パ◯ンコ</div><div style="font-family:monospace;font-size:11px;color:#aaaaff;margin-bottom:40px;">〜中央店の奇跡〜</div><div style="display:flex;flex-direction:column;gap:14px;width:220px;"><button onclick="showInstructions()" style="font-family:monospace;font-size:13px;padding:12px;background:rgba(80,0,120,0.8);border:2px solid #9900cc;color:#fff;cursor:pointer;border-radius:4px;">操作説明</button><button onclick="startGame('high')" style="font-family:monospace;font-size:13px;padding:12px;background:rgba(180,0,0,0.8);border:2px solid #ff0000;color:#fff;cursor:pointer;border-radius:4px;">高設定 (1/60)</button><button onclick="startGame('low')" style="font-family:monospace;font-size:13px;padding:12px;background:rgba(0,80,0,0.8);border:2px solid #00cc00;color:#fff;cursor:pointer;border-radius:4px;">低設定 (1/199)</button></div></div></div>
     <!-- Instructions Screen -->
     <div id="screenInstructions" class="screen"></div>
     <!-- Opening Screen -->
@@ -285,7 +285,7 @@ const CLERK_W = 48, CLERK_H = 64;
 const CLERK_BASE_SPEED = 1.8;
 
 const spriteSheet = new Image();
-spriteSheet.src = 'sprites.png';
+spriteSheet.src = 'IMG_1313.png';
 
 let gameState = 'title'; // title, opening, playing, gameover, clear, trueend, galGame, badTrueEnd, timeup, instructions
 let difficulty = 'low'; // 'low'=1/199, 'high'=1/60
