@@ -285,7 +285,7 @@ const CLERK_W = 48, CLERK_H = 64;
 const CLERK_BASE_SPEED = 1.8;
 
 const spriteSheet = new Image();
-spriteSheet.src = 'IMG_1313.png';
+spriteSheet.src = 'sprites.png';
 
 let gameState = 'title'; // title, opening, playing, gameover, clear, trueend, galGame, badTrueEnd, timeup, instructions
 let difficulty = 'low'; // 'low'=1/199, 'high'=1/60
@@ -1323,20 +1323,20 @@ renderClearScreen(bigWinCount);
 // ============================================================
 // INIT
 // ============================================================
+function startInit() {
+setupControls();
+showScreen(‘screenTitle’);
+renderTitleScreen();
+gameLoop();
+}
+
 window.addEventListener(‘load’, () => {
-spriteSheet.onload = () => {
-setupControls();
-showScreen(‘screenTitle’);
-renderTitleScreen();
-gameLoop();
-};
-spriteSheet.onerror = () => {
-// Fallback if sprite fails - still run game with placeholder graphics
-setupControls();
-showScreen(‘screenTitle’);
-renderTitleScreen();
-gameLoop();
-};
+if (spriteSheet.complete && spriteSheet.naturalWidth > 0) {
+startInit();
+} else {
+spriteSheet.onload = startInit;
+spriteSheet.onerror = startInit;
+}
 });
 
 // Expose to inline onclick
